@@ -15,9 +15,10 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import './globals.css';
 
 import AboutMe from './about/page'; 
+import './globals.css';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 export default function Navbar() {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null); 
@@ -32,8 +33,17 @@ export default function Navbar() {
         setAnchorElNav(null); 
     }; 
 
+    /* Dark Theme color */ 
+    const darkTheme = createTheme({
+        palette: {
+          mode: 'dark',
+        },
+    });
+      
+
     return (
-        <Appbar position="static">
+        <ThemeProvider theme={darkTheme}>
+        <Appbar position="static" color="primary">
             <Toolbar>
                 <IconButton 
                     size="large" 
@@ -75,7 +85,15 @@ export default function Navbar() {
                 </Menu>
                 </Box> 
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Button 
+                        href='/'
+                        onClick={handleCloseNavMenu}
+                        sx={{ my: 2, color: 'white', display: 'block' }}
+                        >
+                        Home
+                    </Button>
                     <Button
+                        href='/about'
                         key={'About us'}
                         onClick={handleCloseNavMenu}
                         sx={{ my: 2, color: 'white', display: 'block' }}
@@ -83,7 +101,7 @@ export default function Navbar() {
                         About Me
                     </Button>
                     <Button
-                        href='/about'
+                        href='/projects'
                         onClick={() => {
                             console.info("hello")}}
                         sx={{ my: 2, color: 'white', display: 'block'}}
@@ -93,5 +111,6 @@ export default function Navbar() {
                 </Box>
         </Toolbar>
     </Appbar>
+    </ThemeProvider>
     )
 }
