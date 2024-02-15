@@ -22,6 +22,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 export default function Navbar() {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null); 
+    const [btnColor, setBtnColor] = React.useState("white"); 
 
     const pages = ['About Me', 'Projects'];
 
@@ -29,21 +30,14 @@ export default function Navbar() {
         setAnchorElNav(event.currentTarget);
     }; 
 
+
     const handleCloseNavMenu = () => {
         setAnchorElNav(null); 
     }; 
 
-    /* Dark Theme color */ 
-    const darkTheme = createTheme({
-        palette: {
-          mode: 'dark',
-        },
-    });
-      
 
     return (
-        <ThemeProvider theme={darkTheme}>
-        <Appbar position="static" color="primary">
+        <Appbar position="absolute" elevation={0} sx={{ background: 'transparent', boxShadow: 'none'}}>
             <Toolbar>
                 <IconButton 
                     size="large" 
@@ -85,32 +79,45 @@ export default function Navbar() {
                 </Menu>
                 </Box> 
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                    <Button 
-                        href='/'
-                        onClick={handleCloseNavMenu}
-                        sx={{ my: 2, color: 'white', display: 'block' }}
+                    <Link href='/' passHref>
+                        <Button 
+                            onClick={() => {
+                                if (btnColor === "black"){
+                                    setBtnColor("white")
+                                }
+                            }}
+                            sx={{ my: 2, color: btnColor, display: 'block' }}
+                            >
+                            Home
+                        </Button>
+                    </Link> 
+                    <Link href='/about' passHref>
+                        <Button
+                            key={'About us'}
+                            onClick={() => {
+                                if (btnColor === "white") {
+                                    setBtnColor("black")
+                                }
+                            }}
+                            sx={{ my: 2, color: btnColor, display: 'block' }}
                         >
-                        Home
-                    </Button>
-                    <Button
-                        href='/about'
-                        key={'About us'}
-                        onClick={handleCloseNavMenu}
-                        sx={{ my: 2, color: 'white', display: 'block' }}
-                    >
                         About Me
-                    </Button>
-                    <Button
-                        href='/projects'
-                        onClick={() => {
-                            console.info("hello")}}
-                        sx={{ my: 2, color: 'white', display: 'block'}}
-                    >
-                        Projects
-                    </Button>
+                        </Button>
+                    </Link>
+                    <Link href='/projects' passHref>
+                        <Button
+                            onClick={() => {
+                                if (btnColor === "white") {
+                                    setBtnColor("black")
+                                }
+                                console.info("hello")}}
+                            sx={{ my: 2, color: btnColor, display: 'block'}}
+                        >
+                            Projects
+                        </Button>
+                    </Link>
                 </Box>
-        </Toolbar>
-    </Appbar>
-    </ThemeProvider>
+            </Toolbar>
+        </Appbar>
     )
 }

@@ -19,10 +19,10 @@ export default function Home() {
         component="img"
         image="/sunset_starship.jpg"
         sx = {{height: "100%", backgroundSize: 'cover'}}/>
-      <div style={{position: "absolute", color: "white", top: 10, left: "50%",
+      <div style={{position: "absolute", color: "white", top: 50, left: "50%", 
       transform: "translateX(-50%)", fontFamily: "monospace", fontSize: "15px"}}> 
           Aspiring Software/Machine Learning/Cybersecurity Engineer
-      </div>
+      </div> 
       <div style={{position: "absolute", color: "#F2F0DF", top: 75, left: "50%",
       transform: "translateX(-50%)", fontFamily: "monospace", fontSize: "80px", fontWeight: "bold"}}>
         Johann Fernandez
