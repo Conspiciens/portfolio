@@ -21,7 +21,8 @@ import './globals.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 export default function Navbar() {
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null); 
+    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+    const [tabImg, setTabImage] = React.useState("transparent"); 
     const [btnColor, setBtnColor] = React.useState("white"); 
 
     const pages = ['About Me', 'Projects'];
@@ -37,7 +38,13 @@ export default function Navbar() {
 
 
     return (
-        <Appbar position="absolute" elevation={0} sx={{ background: 'transparent', boxShadow: 'none'}}>
+        <Appbar position="absolute" elevation={0} sx={{ 
+                background: 'transparent', 
+                backgroundImage: `url(${tabImg})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center 12.3%',
+                boxShadow: 'none',
+            }}>
             <Toolbar>
                 <IconButton 
                     size="large" 
@@ -82,6 +89,7 @@ export default function Navbar() {
                     <Link href='/' passHref>
                         <Button 
                             onClick={() => {
+                                setTabImage("")
                                 if (btnColor === "black"){
                                     setBtnColor("white")
                                 }
@@ -95,6 +103,7 @@ export default function Navbar() {
                         <Button
                             key={'About us'}
                             onClick={() => {
+                                setTabImage("sunset_starship.jpg")
                                 if (btnColor === "white") {
                                     setBtnColor("black")
                                 }
@@ -107,10 +116,11 @@ export default function Navbar() {
                     <Link href='/projects' passHref>
                         <Button
                             onClick={() => {
+                                setTabImage("sunset_starship.jpg")
                                 if (btnColor === "white") {
                                     setBtnColor("black")
                                 }
-                                console.info("hello")}}
+                            }}
                             sx={{ my: 2, color: btnColor, display: 'block'}}
                         >
                             Projects

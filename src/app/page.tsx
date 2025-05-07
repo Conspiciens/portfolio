@@ -3,7 +3,11 @@ import Navbar from "./navbar";
 import about from "./about/page";
 import Box from '@mui/material/Box'; 
 import Grid from '@mui/material/Grid'; 
+import Link from 'next/link';
 import { Card, CardMedia, Typography } from "@mui/material";
+
+import linkedinImage from '../../public/linkedin-3-32.png'; 
+import githubImage from '../../public/github-10-32.png';
 
 export default function Home() {
   return (
@@ -27,6 +31,32 @@ export default function Home() {
       transform: "translateX(-50%)", fontFamily: "monospace", fontSize: "80px", fontWeight: "bold"}}>
         Johann Fernandez
       </div>
+
+      {/* 
+        Interactive buttons for Johann Fernandez Profile 
+      */}
+      <Link href="https://www.linkedin.com/in/johann-fernandez-9143a4200/">
+        <Image 
+          src={linkedinImage} 
+          alt="Linkedin Image"
+          style={{
+            position: "absolute", 
+            bottom: "10%", 
+            left: "49%"
+          }}
+        />
+      </Link>
+      <Link href="https://github.com/Conspiciens">
+        <Image 
+          src={githubImage} 
+          alt="Github Image"
+          style={{
+            position: "absolute", 
+            bottom: "10%", 
+            left: "52%"
+          }}
+        />
+      </Link>
     </Card>
   </div>
   )
