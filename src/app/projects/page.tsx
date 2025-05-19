@@ -1,4 +1,8 @@
 import {Card, CardMedia} from '@mui/material';
+import Link from 'next/link';
+import Image from 'next/image';
+
+import githubImage from '../../../public/github-10-32.png';
 
 export default function Projects() {
     return (
@@ -23,6 +27,33 @@ export default function Projects() {
                     filter: 'blur(3px)'
                   }}
                 />
+                <div id="bc-title" style={{ 
+                    paddingTop: "2%",
+                    position: "absolute", 
+                    top: 50, 
+                    left: "30%", 
+                    color: "#F2F0DF",
+                    transform: "translateX(-50%)", 
+                    fontFamily: "monospace", 
+                    fontSize: '40px', 
+                    fontWeight: 'bold',
+                    }}> 
+                    Self Driving Vehicle: Behavior Cloning
+                
+                        <Link id="bc-link" 
+                            href="https://github.com/Cal-Poly-Pomona-Autonomous-Vehicle-Lab/End-To-End-Network" 
+                        >
+                            <Image 
+                              src={githubImage}
+                              alt="Github Image"
+                              style={{
+                                position: "absolute", 
+                                textAlign: 'right'
+
+                              }} 
+                            />
+                        </Link> 
+                </div> 
               </Card>
             </div> 
         </>
