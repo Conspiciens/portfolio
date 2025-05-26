@@ -14,13 +14,14 @@ export default function Home() {
   <div style={{ position: 'relative', height: '100vh' }}> 
     <Card
       sx={{
-        width: "100%", 
-        height: "100%", 
-        position: "absolute",
+        width: '100%', 
+        height: '100%', 
+        position: 'absolute',
+        borderRadius: '0%'
       }}
       >
       <CardMedia 
-        component="img"
+        component='img'
         image="/sunset_starship.jpg"
         sx = {{height: "100%", backgroundSize: 'cover'}}/>
       <div style={{position: "absolute", color: "white", top: 50, left: "50%", 

@@ -13,6 +13,7 @@ const About = () => {
           height: "100%", 
           position: "absolute",
           background: 'rgb(0, 0, 0, 0.6)', 
+          borderRadius: "0"
         }}>
           <CardMedia
             component="img"
@@ -24,6 +25,10 @@ const About = () => {
               filter: 'blur(3px)'
             }}
           />
+          <div style={{ position: "absolute", color: "white", top: 50, left: "50%", 
+          transform: "translateX(-50%)", fontFamily: "monospace", fontSize: "15px" }}> 
+              Aspiring Software/Machine Learning/Cybersecurity Engineer
+          </div> 
         </Card>
       </div> 
       </>

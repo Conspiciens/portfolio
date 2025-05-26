@@ -12,10 +12,11 @@ export default function Projects() {
               height: '100vh', 
               }}> 
               <Card sx={{
-                width: "100%", 
-                height: "100%", 
-                position: "absolute",
+                width: '100%', 
+                height: '100%', 
+                position: 'absolute',
                 background: 'rgb(0, 0, 0, 0.6)', 
+                borderRadius: '0%'
               }}>
                 <CardMedia
                   component="img"
@@ -57,8 +58,17 @@ export default function Projects() {
                     </div> 
                 </div> 
               
-                <div id="bc-paragraph">
-                  
+                <div id="bc-paragraph"
+                  style={{
+                    position: 'absolute',
+                    top: '15%', 
+                    left: '3%',
+                    color: '#F2F0DF', 
+                    fontSize: '15px',
+                   
+                  }}>
+                  Led the research in building an End to End Neural Network, these models tend to focus on taking raw input 
+                  without any form of annotation and then training a model.
                 </div>
 
               </Card>
