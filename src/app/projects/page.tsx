@@ -27,33 +27,40 @@ export default function Projects() {
                     filter: 'blur(3px)'
                   }}
                 />
-                <div id="bc-title" style={{ 
-                    paddingTop: "2%",
-                    position: "absolute", 
-                    top: 50, 
-                    left: "30%", 
-                    color: "#F2F0DF",
-                    transform: "translateX(-50%)", 
-                    fontFamily: "monospace", 
-                    fontSize: '40px', 
-                    fontWeight: 'bold',
-                    }}> 
-                    Self Driving Vehicle: Behavior Cloning
-                
-                        <Link id="bc-link" 
-                            href="https://github.com/Cal-Poly-Pomona-Autonomous-Vehicle-Lab/End-To-End-Network" 
-                        >
-                            <Image 
-                              src={githubImage}
-                              alt="Github Image"
-                              style={{
-                                position: "absolute", 
-                                textAlign: 'right'
 
-                              }} 
-                            />
-                        </Link> 
+                <div id="bc-line">
+                    <div id="bc-title" style={{ 
+                          paddingTop: "2%",
+                          position: 'absolute', 
+                          top: "5%", 
+                          left: "2%", 
+                          color: "#F2F0DF",
+                          fontFamily: "monospace", 
+                          fontSize: '40px', 
+                          fontWeight: 'bold',
+                          width: '60%'
+                        }}> 
+                          Self Driving Vehicle: Behavior Cloning
+
+                          <Link id="bc-link" 
+                                      href="https://github.com/Cal-Poly-Pomona-Autonomous-Vehicle-Lab/End-To-End-Network" 
+                                      style={{
+                                        marginTop: '1%',
+                                        float: 'right'
+                                      }}
+                                  >
+                                      <Image 
+                                        src={githubImage}
+                                        alt="Github Image"
+                                      />
+                          </Link>
+                    </div> 
                 </div> 
+              
+                <div id="bc-paragraph">
+                  
+                </div>
+
               </Card>
             </div> 
         </>
