@@ -12,18 +12,14 @@ import Link from 'next/link';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import { usePathname } from 'next/navigation';
 
-import AboutMe from './about/page'; 
 import './globals.css';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 export default function Navbar() {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    const [tabImg, setTabImage] = React.useState("transparent"); 
-    const [btnColor, setBtnColor] = React.useState("white"); 
+    const [tabImg, setTabImage] = React.useState("sunset_starship.jpg"); 
+    const [btnColor, setBtnColor] = React.useState("black"); 
 
     const pages = ['About Me', 'Projects'];
 
@@ -31,16 +27,14 @@ export default function Navbar() {
         setAnchorElNav(event.currentTarget);
     }; 
 
-
     const handleCloseNavMenu = () => {
         setAnchorElNav(null); 
     }; 
 
-
     return (
         <Appbar position="absolute" elevation={0} sx={{ 
                 background: 'transparent', 
-                backgroundImage: `url(${tabImg})`,
+                backgroundImage: 'none',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center 12.3%',
                 boxShadow: 'none',
@@ -88,12 +82,6 @@ export default function Navbar() {
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                     <Link href='/' passHref>
                         <Button 
-                            onClick={() => {
-                                setTabImage("")
-                                if (btnColor === "black"){
-                                    setBtnColor("white")
-                                }
-                            }}
                             sx={{ my: 2, color: btnColor, display: 'block' }}
                             >
                             Home
@@ -102,12 +90,6 @@ export default function Navbar() {
                     <Link href='/about' passHref>
                         <Button
                             key={'About us'}
-                            onClick={() => {
-                                setTabImage("sunset_starship.jpg")
-                                if (btnColor === "white") {
-                                    setBtnColor("black")
-                                }
-                            }}
                             sx={{ my: 2, color: btnColor, display: 'block' }}
                         >
                         About Me
@@ -115,12 +97,6 @@ export default function Navbar() {
                     </Link>
                     <Link href='/projects' passHref>
                         <Button
-                            onClick={() => {
-                                setTabImage("sunset_starship.jpg")
-                                if (btnColor === "white") {
-                                    setBtnColor("black")
-                                }
-                            }}
                             sx={{ my: 2, color: btnColor, display: 'block'}}
                         >
                             Projects
